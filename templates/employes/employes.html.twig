@@ -8,10 +8,10 @@ Employé(e)s
 
 <h1 class="text-center my-4">Employé(e)s</h1>
 	<div class="container">
-    <section class="row">
+    <section class="row justify-content-center">
     {% for employe in employes %}
         
-		<div class="card text text-white bg-dark col-md-3 m-3">
+		<div class="card text text-white bg-dark col-3 m-2" style="min-width: 20rem;">
 			<div class="card-body">
 				<h4 class="card-title">{{ employe.prenom }} {{ employe.nom }}</h4>
 				<p class="card-text"><span class="text-light">Numero de téléphone : </span>{{ employe.telephone }}</p>
