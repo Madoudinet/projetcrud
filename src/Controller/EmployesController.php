@@ -68,4 +68,13 @@ class EmployesController extends AbstractController
         $manager->flush();
         return $this->redirectToRoute('gestion');
     }
+
+    #[Route('/eployes', name:'employes')]
+    public function employes(EmployesRepository $repo)
+    {
+        $employes = $repo->findAll();
+        return $this->render('employes/employes.html.twig', [
+            'employes' => $employes,
+        ]);
+    }
 }

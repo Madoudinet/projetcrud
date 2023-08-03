@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Employé(e)s
+{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center my-4">Employé(e)s</h1>
+	<div class="container">
+    <section class="row">
+    {% for employe in employes %}
+        
+		<div class="card text text-white bg-dark col-md-3 m-3">
+			<div class="card-body">
+				<h4 class="card-title">{{ employe.prenom }} {{ employe.nom }}</h4>
+				<p class="card-text"><span class="text-light">Numero de téléphone : </span>{{ employe.telephone }}</p>
+				<p class="card-text"><span class="text-light">Email : </span>{{ employe.email }}</p>
+				<p class="card-text"><span class="text-light">Adresse : </span>{{ employe.adresse }}</p>
+				<p class="card-text"><span class="text-light">Salaire : </span>{{ employe.salaire }} € / par mois</p>
+				<p class="card-text"><span class="text-light">Date de naissance : </span>{{ employe.datedenaissance|date('d/m/Y') }}</p>
+                <div class="text-center">
+							<a href="{{ path('employe', {id: employe.id}) }}" class="btn btn-primary">voir plus</a>
+						</div>
+			</div>
+		</div>
+    {% endfor %}
+    </section>
+	</div>
+
+{% endblock %}

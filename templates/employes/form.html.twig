@@ -20,13 +20,29 @@ un(e) employé(e)</h1>
 
 <section class="container">
 {{ form_start(form) }}
-    {{ form_row(form.prenom)}}
-    {{ form_row(form.nom)}}
+<div class="row">
+    <div class="col-6">
+        {{ form_row(form.prenom)}}
+    </div>
+    <div class="col-6">
+        {{ form_row(form.nom)}}
+    </div>
+    <div class="col-3">
     {{ form_row(form.telephone)}}
+    </div>
+    <div class="col-3">
     {{ form_row(form.email)}}
+    </div>
+    <div class="col-6">
     {{ form_row(form.adresse)}}
+    </div>
+    <div class="col-2">
     {{ form_row(form.salaire)}}
+    </div>
+    <div class="col-2">
     {{ form_row(form.datedenaissance)}}
+    </div>
+</div>
     <button class="btn btn-primary">Envoyer</button>
 {{ form_end(form) }}
 </section>
