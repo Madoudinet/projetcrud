@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ employe.prenom }} {{ employe.nom }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-5">
+		<div class="card text-white bg-dark mb-3">
+			<div class="card-body">
+				<h4 class="card-title">{{ employe.prenom }} {{ employe.nom }}</h4>
+				<p class="card-text"><span class="text-light">Numero de téléphone : </span>{{ employe.telephone }}</p>
+				<p class="card-text"><span class="text-light">Email : </span>{{ employe.email }}</p>
+				<p class="card-text"><span class="text-light">Adresse : </span>{{ employe.adresse }}</p>
+				<p class="card-text"><span class="text-light">Salaire : </span>{{ employe.salaire }} € / par mois</p>
+				<p class="card-text"><span class="text-light">Date de naissance : </span>{{ employe.datedenaissance|date('d/m/Y') }}</p>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

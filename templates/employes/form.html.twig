@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+        un employé
+{% endblock %}
+
+{% block body %}
+<h1 class="text-center my-4">
+{% if editMode %}
+    Modifier
+{% else %}
+    Ajouter
+{% endif %}
+un(e) employé(e)</h1>
+
+<section class="container">
+{{ form_start(form) }}
+    {{ form_row(form.prenom)}}
+    {{ form_row(form.nom)}}
+    {{ form_row(form.telephone)}}
+    {{ form_row(form.email)}}
+    {{ form_row(form.adresse)}}
+    {{ form_row(form.salaire)}}
+    {{ form_row(form.datedenaissance)}}
+    <button class="btn btn-primary">Envoyer</button>
+{{ form_end(form) }}
+</section>
+
+
+{% endblock %}

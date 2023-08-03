@@ -6,6 +6,7 @@ use App\Entity\Employes;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class EmployesType extends AbstractType
 {
@@ -18,7 +19,9 @@ class EmployesType extends AbstractType
             ->add('email')
             ->add('adresse')
             ->add('salaire')
-            ->add('datedenaissance')
+            ->add('datedenaissance', DateType::class, [
+                // renders it as a single text box
+                'widget' => 'single_text',])
         ;
     }
 
