@@ -69,7 +69,7 @@ class EmployesController extends AbstractController
         return $this->redirectToRoute('gestion');
     }
 
-    #[Route('/eployes', name:'employes')]
+    #[Route('/employes', name:'employes')]
     public function employes(EmployesRepository $repo)
     {
         $employes = $repo->findAll();

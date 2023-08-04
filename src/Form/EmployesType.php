@@ -19,6 +19,7 @@ class EmployesType extends AbstractType
             ->add('email')
             ->add('adresse')
             ->add('salaire')
+            ->add('poste')
             ->add('datedenaissance', DateType::class, [
                 // renders it as a single text box
                 'widget' => 'single_text',])

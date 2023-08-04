@@ -6,7 +6,7 @@
     {% else %}
         Ajouter
     {% endif %}
-        un employé
+        un(e) employé(e)
 {% endblock %}
 
 {% block body %}
@@ -19,16 +19,18 @@
 un(e) employé(e)</h1>
 
 <section class="container">
-{{ form_start(form) }}
+{{ form_start(form, {
+    attr: { novalidate: 'novalidate'}
+}) }}
 <div class="row">
     <div class="col-6">
-        {{ form_row(form.prenom)}}
+        {{ form_row(form.prenom, { 'label': 'Prénom' })}}
     </div>
     <div class="col-6">
         {{ form_row(form.nom)}}
     </div>
     <div class="col-3">
-    {{ form_row(form.telephone)}}
+    {{ form_row(form.telephone, { 'label': 'Numéro de téléphone' })}}
     </div>
     <div class="col-3">
     {{ form_row(form.email)}}
@@ -36,11 +38,14 @@ un(e) employé(e)</h1>
     <div class="col-6">
     {{ form_row(form.adresse)}}
     </div>
+    <div class="col-4">
+    {{ form_row(form.poste)}}
+    </div>
     <div class="col-2">
     {{ form_row(form.salaire)}}
     </div>
     <div class="col-2">
-    {{ form_row(form.datedenaissance)}}
+    {{ form_row(form.datedenaissance, { 'label': 'Date de naissance' })}}
     </div>
 </div>
     <button class="btn btn-primary">Envoyer</button>
