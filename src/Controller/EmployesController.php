@@ -19,7 +19,7 @@ class EmployesController extends AbstractController
         return $this->render('employes/index.html.twig');
     }
 
-    #[Route('/gestion', name:'gestion')]
+    #[Route('/gestion', name: 'gestion')]
     public function gestion(EmployesRepository $repo)
     {
         $employes = $repo->findAll();
@@ -28,19 +28,18 @@ class EmployesController extends AbstractController
         ]);
     }
 
-    #[Route('/form/modifier/{id}', name:'modifier')]
-    #[Route('/form', name:'form')]
+    #[Route('/form/modifier/{id}', name: 'modifier')]
+    #[Route('/form', name: 'form')]
     public function form(Request $globals, EntityManagerInterface $manager, Employes $employe = null): Response
     {
-        if($employe == null){
+        if ($employe == null) {
             $employe = new Employes;
         }
         $form = $this->createForm(EmployesType::class, $employe);
 
         $form->handleRequest($globals);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($employe);
             $manager->flush();
             return $this->redirectToRoute('gestion');
@@ -52,7 +51,7 @@ class EmployesController extends AbstractController
         ]);
     }
 
-    #[Route('/employe/{id}', name:'employe')]
+    #[Route('/employe/{id}', name: 'employe')]
     public function show($id, EmployesRepository $repo)
     {
         $employe = $repo->find($id);
@@ -61,7 +60,7 @@ class EmployesController extends AbstractController
         ]);
     }
 
-    #[Route('/employe/supprimer/{id}', name:'supprimer')]
+    #[Route('/employe/supprimer/{id}', name: 'supprimer')]
     public function supprimer(Employes $employe, EntityManagerInterface $manager)
     {
         $manager->remove($employe);
@@ -69,7 +68,7 @@ class EmployesController extends AbstractController
         return $this->redirectToRoute('gestion');
     }
 
-    #[Route('/employes', name:'employes')]
+    #[Route('/employes', name: 'employes')]
     public function employes(EmployesRepository $repo)
     {
         $employes = $repo->findAll();
